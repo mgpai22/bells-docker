@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  bells-node: 
+    build: .
+    command:
+      -conf=/home/bells/bells.conf
+    volumes:
+      - /root/bells-node/data:/home/bells/.bells
+      - /root/bells-node/docker/bells.conf:/home/bells/bells.conf
+    ports:
+      - 19918:19918 # JSON-RPC signet port
+      - 19919:19919 # P2P port
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
