@@ -6,3 +6,8 @@ Run with
 ```
 docker compose up -d
 ```
+
+Check logs with
+```
+docker compose logs -f
+```
